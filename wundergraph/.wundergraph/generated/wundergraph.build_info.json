@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "sdk": {
+    "version": "0.159.0"
+  },
+  "wunderctl": {
+    "version": "0.153.0"
+  },
+  "node": {
+    "version": "v18.16.0"
+  },
+  "os": {
+    "type": "Linux",
+    "platform": "linux",
+    "arch": "x64",
+    "version": "#1 SMP Fri Jan 27 02:56:13 UTC 2023",
+    "release": "5.15.90.1-microsoft-standard-WSL2"
+  },
+  "stats": {
+    "totalApis": 2,
+    "hasUploadProvider": false,
+    "totalOperations": 3,
+    "totalWebhooks": 0,
+    "hasAuthenticationProvider": false
+  }
+}

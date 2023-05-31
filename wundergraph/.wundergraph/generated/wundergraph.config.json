@@ -1,0 +1,2493 @@
+{
+  "apiId": "",
+  "environmentIds": [
+    ""
+  ],
+  "api": {
+    "enableGraphqlEndpoint": false,
+    "operations": [
+      {
+        "content": "",
+        "name": "UsersGet",
+        "path": "users/get",
+        "responseSchema": "{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\",\"default\":\"Jens\"},\"bio\":{\"type\":\"string\",\"default\":\"Founder of WunderGraph\"}},\"required\":[\"bio\",\"id\",\"name\"]}",
+        "variablesSchema": "{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"}},\"required\":[\"id\"],\"additionalProperties\":false,\"$schema\":\"http://json-schema.org/draft-07/schema#\"}",
+        "interpolationVariablesSchema": "{\"type\":\"object\",\"properties\":{}}",
+        "operationType": 0,
+        "engine": 1,
+        "cacheConfig": {
+          "enable": false,
+          "staleWhileRevalidate": 60,
+          "maxAge": 60,
+          "public": true
+        },
+        "authenticationConfig": {
+          "authRequired": false
+        },
+        "authorizationConfig": {
+          "claims": [],
+          "roleConfig": {
+            "requireMatchAll": [],
+            "requireMatchAny": [],
+            "denyMatchAll": [],
+            "denyMatchAny": []
+          }
+        },
+        "liveQueryConfig": {
+          "enable": true,
+          "pollingIntervalSeconds": 5
+        },
+        "hooksConfiguration": {
+          "preResolve": false,
+          "postResolve": false,
+          "mutatingPreResolve": false,
+          "mutatingPostResolve": false,
+          "mockResolve": {
+            "enable": false,
+            "subscriptionPollingIntervalMillis": 0
+          },
+          "httpTransportOnResponse": false,
+          "httpTransportOnRequest": false,
+          "customResolve": false
+        },
+        "variablesConfiguration": {
+          "injectVariables": []
+        },
+        "internal": false,
+        "postResolveTransformations": []
+      },
+      {
+        "content": "",
+        "name": "UsersSubscribe",
+        "path": "users/subscribe",
+        "responseSchema": "{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\",\"default\":\"Jens\"},\"bio\":{\"type\":\"string\",\"default\":\"Founder of WunderGraph\"},\"time\":{\"type\":\"string\"}},\"required\":[\"bio\",\"id\",\"name\",\"time\"]}",
+        "variablesSchema": "{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"}},\"required\":[\"id\"],\"additionalProperties\":false,\"$schema\":\"http://json-schema.org/draft-07/schema#\"}",
+        "interpolationVariablesSchema": "{\"type\":\"object\",\"properties\":{}}",
+        "operationType": 2,
+        "engine": 1,
+        "authenticationConfig": {
+          "authRequired": false
+        },
+        "authorizationConfig": {
+          "claims": [],
+          "roleConfig": {
+            "requireMatchAll": [],
+            "requireMatchAny": [],
+            "denyMatchAll": [],
+            "denyMatchAny": []
+          }
+        },
+        "liveQueryConfig": {
+          "enable": false,
+          "pollingIntervalSeconds": 0
+        },
+        "hooksConfiguration": {
+          "preResolve": false,
+          "postResolve": false,
+          "mutatingPreResolve": false,
+          "mutatingPostResolve": false,
+          "mockResolve": {
+            "enable": false,
+            "subscriptionPollingIntervalMillis": 0
+          },
+          "httpTransportOnResponse": false,
+          "httpTransportOnRequest": false,
+          "customResolve": false
+        },
+        "variablesConfiguration": {
+          "injectVariables": []
+        },
+        "internal": false,
+        "postResolveTransformations": []
+      },
+      {
+        "content": "",
+        "name": "UsersUpdate",
+        "path": "users/update",
+        "responseSchema": "{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"id\":{\"type\":\"string\"},\"bio\":{\"type\":\"string\"}},\"required\":[\"bio\",\"id\",\"name\"]}",
+        "variablesSchema": "{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"bio\":{\"type\":\"string\"}},\"required\":[\"id\",\"name\",\"bio\"],\"additionalProperties\":false,\"$schema\":\"http://json-schema.org/draft-07/schema#\"}",
+        "interpolationVariablesSchema": "{\"type\":\"object\",\"properties\":{}}",
+        "operationType": 1,
+        "engine": 1,
+        "authenticationConfig": {
+          "authRequired": false
+        },
+        "authorizationConfig": {
+          "claims": [],
+          "roleConfig": {
+            "requireMatchAll": [],
+            "requireMatchAny": [],
+            "denyMatchAll": [],
+            "denyMatchAny": []
+          }
+        },
+        "liveQueryConfig": {
+          "enable": false,
+          "pollingIntervalSeconds": 0
+        },
+        "hooksConfiguration": {
+          "preResolve": false,
+          "postResolve": false,
+          "mutatingPreResolve": false,
+          "mutatingPostResolve": false,
+          "mockResolve": {
+            "enable": false,
+            "subscriptionPollingIntervalMillis": 0
+          },
+          "httpTransportOnResponse": false,
+          "httpTransportOnRequest": false,
+          "customResolve": false
+        },
+        "variablesConfiguration": {
+          "injectVariables": []
+        },
+        "internal": false,
+        "postResolveTransformations": []
+      }
+    ],
+    "invalidOperationNames": [],
+    "engineConfiguration": {
+      "defaultFlushInterval": 500,
+      "graphqlSchema": "\"\"\"\nThe @removeNullVariables directive allows you to remove variables with null value from your GraphQL Query or Mutation Operations.\n\nA potential use-case could be that you have a graphql upstream which is not accepting null values for variables.\nBy enabling this directive all variables with null values will be removed from upstream query.\n\nquery ($say: String, $name: String) @removeNullVariables {\n\thello(say: $say, name: $name)\n}\n\nDirective will transform variables json and remove top level null values.\n{ \"say\": null, \"name\": \"world\" }\n\nSo upstream will receive the following variables:\n\n{ \"name\": \"world\" }\n\"\"\"\ndirective @removeNullVariables on QUERY | MUTATION\n\ndirective @hooksVariable on VARIABLE_DEFINITION\n\ndirective @jsonSchema(\n  \"\"\"\n  The value of both of these keywords MUST be a string.\n  \n  Both of these keywords can be used to decorate a user interface with\n  information about the data produced by this user interface.  A title\n  will preferably be short, whereas a description will provide\n  explanation about the purpose of the instance described by this\n  schema.\n  \"\"\"\n  title: String\n  \"\"\"\n  The value of both of these keywords MUST be a string.\n  \n  Both of these keywords can be used to decorate a user interface with\n  information about the data produced by this user interface.  A title\n  will preferably be short, whereas a description will provide\n  explanation about the purpose of the instance described by this\n  schema.\n  \"\"\"\n  description: String\n  \"\"\"\n  The value of \"multipleOf\" MUST be a number, strictly greater than 0.\n  \n  A numeric instance is valid only if division by this keyword's value\n  results in an integer.\n  \"\"\"\n  multipleOf: Int\n  \"\"\"\n  The value of \"maximum\" MUST be a number, representing an inclusive\n  upper limit for a numeric instance.\n  \n  If the instance is a number, then this keyword validates only if the\n  instance is less than or exactly equal to \"maximum\".\n  \"\"\"\n  maximum: Int\n  \"\"\"\n  The value of \"exclusiveMaximum\" MUST be number, representing an\n  exclusive upper limit for a numeric instance.\n  \n  If the instance is a number, then the instance is valid only if it\n  has a value strictly less than (not equal to) \"exclusiveMaximum\".\n  \"\"\"\n  exclusiveMaximum: Int\n  \"\"\"\n  The value of \"minimum\" MUST be a number, representing an inclusive\n  lower limit for a numeric instance.\n  \n  If the instance is a number, then this keyword validates only if the\n  instance is greater than or exactly equal to \"minimum\".\n  \"\"\"\n  minimum: Int\n  \"\"\"\n  The value of \"exclusiveMinimum\" MUST be number, representing an\n  exclusive lower limit for a numeric instance.\n  \n  If the instance is a number, then the instance is valid only if it\n  has a value strictly greater than (not equal to) \"exclusiveMinimum\".\n  \"\"\"\n  exclusiveMinimum: Int\n  \"\"\"\n  The value of this keyword MUST be a non-negative integer.\n  \n  A string instance is valid against this keyword if its length is less\n  than, or equal to, the value of this keyword.\n  \n  The length of a string instance is defined as the number of its\n  characters as defined by RFC 7159 [RFC7159].\n  \"\"\"\n  maxLength: Int\n  \"\"\"\n  The value of this keyword MUST be a non-negative integer.\n  \n  A string instance is valid against this keyword if its length is\n  greater than, or equal to, the value of this keyword.\n  \n  The length of a string instance is defined as the number of its\n  characters as defined by RFC 7159 [RFC7159].\n  \n  Omitting this keyword has the same behavior as a value of 0.\n  \"\"\"\n  minLength: Int\n  \"\"\"\n  The value of this keyword MUST be a string.  This string SHOULD be a\n  valid regular expression, according to the ECMA 262 regular\n  expression dialect.\n  \n  A string instance is considered valid if the regular expression\n  matches the instance successfully.  Recall: regular expressions are\n  not implicitly anchored.\n  \"\"\"\n  pattern: String\n  \"\"\"\n  The value of this keyword MUST be a non-negative integer.\n  \n  An array instance is valid against \"maxItems\" if its size is less\n  than, or equal to, the value of this keyword.\n  \"\"\"\n  maxItems: Int\n  \"\"\"\n  The value of this keyword MUST be a non-negative integer.\n  \n  An array instance is valid against \"minItems\" if its size is greater\n  than, or equal to, the value of this keyword.\n  \n  Omitting this keyword has the same behavior as a value of 0.\n  \"\"\"\n  minItems: Int\n  \"\"\"\n  The value of this keyword MUST be a boolean.\n  \n  If this keyword has boolean value false, the instance validates\n  successfully.  If it has boolean value true, the instance validates\n  successfully if all of its elements are unique.\n  \n  Omitting this keyword has the same behavior as a value of false.\n  \"\"\"\n  uniqueItems: Boolean\n  commonPattern: COMMON_REGEX_PATTERN\n  \"\"\"Optional field to apply the JSON schema to\"\"\"\n  on: String\n) repeatable on VARIABLE_DEFINITION\n\ndirective @rbac(\n  \"\"\"the user must match all roles\"\"\"\n  requireMatchAll: [WG_ROLE]\n  \"\"\"the user must match at least one of the roles\"\"\"\n  requireMatchAny: [WG_ROLE]\n  \"\"\"the user must not match all of the roles\"\"\"\n  denyMatchAll: [WG_ROLE]\n  \"\"\"the user must not match any of the roles\"\"\"\n  denyMatchAny: [WG_ROLE]\n) on QUERY | MUTATION | SUBSCRIPTION\n\n\"\"\"\nThe @fromClaim directive sets the variable to the value retrieved from the given a claim.\nAdding this directive makes the operation require authentication.\n\"\"\"\ndirective @fromClaim(name: WG_CLAIM, on: String = \"\") repeatable on VARIABLE_DEFINITION\n\n\"\"\"\nThe directive @injectCurrentDateTime injects a DateTime string of the current date and time into the variable.\nThis variable MUST be a string compatible scalar. \n\nThe default format, is: ISO 8601\nIf no format is chosen, the default format is used.\nCustom formats are allowed by specifying a format conforming to the Golang specification for specifying a date time format.\n\"\"\"\ndirective @injectCurrentDateTime(\n  format: WunderGraphDateTimeFormat = ISO8601\n  \"\"\"\n  customFormat must conform to the Golang specification for specifying a date time format\n  \"\"\"\n  customFormat: String\n  on: String = \"\"\n) repeatable on VARIABLE_DEFINITION\n\n\"\"\"\nThe directive @injectGeneratedUUID injects a generated UUID into the variable.\nThis variable MUST be a string.\nAt the same time, it removes the variable from the input definition,\ndisallowing the user to supply it.\n\nThis means, the UUID is 100% generated server-side and can be considered untempered.\n\"\"\"\ndirective @injectGeneratedUUID(on: String = \"\") repeatable on VARIABLE_DEFINITION\n\n\"\"\"\nThe @internalOperation Directive marks an Operation as internal.\nBy doing so, the Operation is no longer accessible from the public API.\nIt can only be accessed by internal services, like hooks.\n\"\"\"\ndirective @internalOperation on QUERY | MUTATION | SUBSCRIPTION\n\n\"\"\"\nThe directive @injectEnvironmentVariable allows you to inject an environment variable into the variable definition.\n\"\"\"\ndirective @injectEnvironmentVariable(name: String!, on: String = \"\") repeatable on VARIABLE_DEFINITION\n\n\"\"\"\nThe @export directive instructs the Execution Planner to export the field during the execution into the variable of the 'as' argument.\nAs the execution is depth first, a field can only be used after it has been exported.\nAdditionally, a field can only be used after using the '_join' field or on a different data source.\nIt's not possible to export a field and use it in for the same data source.\n\nNote that the @export directive only works on fields that return a single value.\nIt's not possible to export a list or object field.\n\"\"\"\ndirective @export(\n  \"\"\"The argument 'as' is the name of the variable to export the field to.\"\"\"\n  as: String!\n) on FIELD\n\n\"\"\"\nThe directive @internal marks a variable definition as internal so that clients can't access it.\nThe field is also not visible in the public API.\nIt's only being used as an internal variable to export fields into.\n\"\"\"\ndirective @internal on VARIABLE_DEFINITION\n\n\"\"\"\nThe @transform directive allows to apply transformations to the response.\nBy applying the directive, the shape of the response can be altered,\nwhich will also modify the JSON-Schema of the response.\nThat is, you will keep full type safety and code-generation for transformed fields.\n\"\"\"\ndirective @transform(\n  \"\"\"\n  Using the 'get' transformation allows you to extract a nested field using a JSON path.\n  This is useful to unnest data, e.g. when using the '_join' field, which adds an extra layer of nesting.\n  \n  Example:\n  \n  query GetName {\n      name: me @transform(get: \"info.name\") {\n          info {\n              name\n          }\n      }\n  }\n  \n  Before the transformation, the resolve looks like this:\n  \n  {\n      \"name\": {\n          \"info\": {\n              \"name\": \"John Doe\"\n          }\n      }\n  }\n  \n  With the transformation applied, the response will be reshaped like this:\n  \n  {\n      \"name\": \"John Doe\"\n  }\n  \"\"\"\n  get: String\n) on FIELD\n\n\"\"\"\nThe @requireAuthentication Directive marks an Operation to require authentication.\nWithout authentication, the operation will return an Unauthorized error with status code 401.\n\"\"\"\ndirective @requireAuthentication on QUERY | MUTATION | SUBSCRIPTION\n\ntype countries_Continent {\n  code: ID!\n  countries: [countries_Country!]!\n  name: String!\n  _join: Query!\n}\n\ninput countries_ContinentFilterInput {\n  code: countries_StringQueryOperatorInput\n}\n\ntype countries_Country {\n  awsRegion: String!\n  capital: String\n  code: ID!\n  continent: countries_Continent!\n  currencies: [String!]!\n  currency: String\n  emoji: String!\n  emojiU: String!\n  languages: [countries_Language!]!\n  name(lang: String): String!\n  native: String!\n  phone: String!\n  phones: [String!]!\n  states: [countries_State!]!\n  subdivisions: [countries_Subdivision!]!\n  _join: Query!\n}\n\ninput countries_CountryFilterInput {\n  code: countries_StringQueryOperatorInput\n  continent: countries_StringQueryOperatorInput\n  currency: countries_StringQueryOperatorInput\n}\n\ntype countries_Language {\n  code: ID!\n  name: String!\n  native: String!\n  rtl: Boolean!\n  _join: Query!\n}\n\ninput countries_LanguageFilterInput {\n  code: countries_StringQueryOperatorInput\n}\n\n\"\"\"The root query type which gives access points into the data universe.\"\"\"\ntype Query implements pg_Node {\n  countries_continent(code: ID!): countries_Continent\n  countries_continents(filter: countries_ContinentFilterInput = {}): [countries_Continent!]!\n  countries_countries(filter: countries_CountryFilterInput = {}): [countries_Country!]!\n  countries_country(code: ID!): countries_Country\n  countries_language(code: ID!): countries_Language\n  countries_languages(filter: countries_LanguageFilterInput = {}): [countries_Language!]!\n  \"\"\"Fetches an object given its globally unique `ID`.\"\"\"\n  pg_node(\n    \"\"\"The globally unique `ID`.\"\"\"\n    nodeId: ID!\n  ): pg_Node\n  \"\"\"\n  The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`.\n  \"\"\"\n  pg_nodeId: ID!\n  pg_post(id: Int!): pg_Post\n  \"\"\"Reads a single `Post` using its globally unique `ID`.\"\"\"\n  pg_postByNodeId(\n    \"\"\"The globally unique `ID` to be used in selecting a single `Post`.\"\"\"\n    nodeId: ID!\n  ): pg_Post\n  \"\"\"Reads and enables pagination through a set of `Post`.\"\"\"\n  pg_posts(\n    \"\"\"Read all values in the set after (below) this cursor.\"\"\"\n    after: pg_Cursor\n    \"\"\"Read all values in the set before (above) this cursor.\"\"\"\n    before: pg_Cursor\n    \"\"\"\n    A condition to be used in determining which values should be returned by the collection.\n    \"\"\"\n    condition: pg_PostCondition\n    \"\"\"Only read the first `n` values of the set.\"\"\"\n    first: Int\n    \"\"\"Only read the last `n` values of the set.\"\"\"\n    last: Int\n    \"\"\"\n    Skip the first `n` values from our `after` cursor, an alternative to cursor\n    based pagination. May not be used with `last`.\n    \"\"\"\n    offset: Int\n    \"\"\"The method to use when ordering `Post`.\"\"\"\n    orderBy: [pg_PostsOrderBy!] = [PRIMARY_KEY_ASC]\n  ): pg_PostsConnection\n  \"\"\"\n  Exposes the root query type nested one level down. This is helpful for Relay 1\n  which can only query top level fields if they are in a particular form.\n  \"\"\"\n  pg_query: Query!\n  pg_user(id: Int!): pg_User\n  \"\"\"Reads a single `User` using its globally unique `ID`.\"\"\"\n  pg_userByNodeId(\n    \"\"\"The globally unique `ID` to be used in selecting a single `User`.\"\"\"\n    nodeId: ID!\n  ): pg_User\n  \"\"\"Reads and enables pagination through a set of `User`.\"\"\"\n  pg_users(\n    \"\"\"Read all values in the set after (below) this cursor.\"\"\"\n    after: pg_Cursor\n    \"\"\"Read all values in the set before (above) this cursor.\"\"\"\n    before: pg_Cursor\n    \"\"\"\n    A condition to be used in determining which values should be returned by the collection.\n    \"\"\"\n    condition: pg_UserCondition\n    \"\"\"Only read the first `n` values of the set.\"\"\"\n    first: Int\n    \"\"\"Only read the last `n` values of the set.\"\"\"\n    last: Int\n    \"\"\"\n    Skip the first `n` values from our `after` cursor, an alternative to cursor\n    based pagination. May not be used with `last`.\n    \"\"\"\n    offset: Int\n    \"\"\"The method to use when ordering `User`.\"\"\"\n    orderBy: [pg_UsersOrderBy!] = [PRIMARY_KEY_ASC]\n  ): pg_UsersConnection\n}\n\ntype countries_State {\n  code: String\n  country: countries_Country!\n  name: String!\n  _join: Query!\n}\n\ninput countries_StringQueryOperatorInput {\n  eq: String\n  in: [String!]\n  ne: String\n  nin: [String!]\n  regex: String\n}\n\ntype countries_Subdivision {\n  code: ID!\n  emoji: String\n  name: String!\n  _join: Query!\n}\n\n\"\"\"All input for the create `Post` mutation.\"\"\"\ninput pg_CreatePostInput {\n  \"\"\"\n  An arbitrary string value with no semantic meaning. Will be included in the\n  payload verbatim. May be used to track mutations by the client.\n  \"\"\"\n  clientMutationId: String\n  \"\"\"The `Post` to be created by this mutation.\"\"\"\n  post: pg_PostInput!\n}\n\n\"\"\"The output of our create `Post` mutation.\"\"\"\ntype pg_CreatePostPayload {\n  \"\"\"Reads a single `User` that is related to this `Post`.\"\"\"\n  author: pg_User\n  \"\"\"\n  The exact same `clientMutationId` that was provided in the mutation input,\n  unchanged and unused. May be used by a client to track mutations.\n  \"\"\"\n  clientMutationId: String\n  \"\"\"The `Post` that was created by this mutation.\"\"\"\n  post: pg_Post\n  \"\"\"An edge for our `Post`. May be used by Relay 1.\"\"\"\n  postEdge(\n    \"\"\"The method to use when ordering `Post`.\"\"\"\n    orderBy: [pg_PostsOrderBy!] = [PRIMARY_KEY_ASC]\n  ): pg_PostsEdge\n  \"\"\"\n  Our root query field type. Allows us to run any query from our mutation payload.\n  \"\"\"\n  query: Query\n  _join: Query!\n}\n\n\"\"\"All input for the create `User` mutation.\"\"\"\ninput pg_CreateUserInput {\n  \"\"\"\n  An arbitrary string value with no semantic meaning. Will be included in the\n  payload verbatim. May be used to track mutations by the client.\n  \"\"\"\n  clientMutationId: String\n  \"\"\"The `User` to be created by this mutation.\"\"\"\n  user: pg_UserInput!\n}\n\n\"\"\"The output of our create `User` mutation.\"\"\"\ntype pg_CreateUserPayload {\n  \"\"\"\n  The exact same `clientMutationId` that was provided in the mutation input,\n  unchanged and unused. May be used by a client to track mutations.\n  \"\"\"\n  clientMutationId: String\n  \"\"\"\n  Our root query field type. Allows us to run any query from our mutation payload.\n  \"\"\"\n  query: Query\n  \"\"\"The `User` that was created by this mutation.\"\"\"\n  user: pg_User\n  \"\"\"An edge for our `User`. May be used by Relay 1.\"\"\"\n  userEdge(\n    \"\"\"The method to use when ordering `User`.\"\"\"\n    orderBy: [pg_UsersOrderBy!] = [PRIMARY_KEY_ASC]\n  ): pg_UsersEdge\n  _join: Query!\n}\n\n\"\"\"A location in a connection that can be used for resuming pagination.\"\"\"\nscalar pg_Cursor\n\n\"\"\"\nA point in time as described by the [ISO\n8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone.\n\"\"\"\nscalar pg_Datetime\n\n\"\"\"All input for the `deletePostByNodeId` mutation.\"\"\"\ninput pg_DeletePostByNodeIdInput {\n  \"\"\"\n  An arbitrary string value with no semantic meaning. Will be included in the\n  payload verbatim. May be used to track mutations by the client.\n  \"\"\"\n  clientMutationId: String\n  \"\"\"\n  The globally unique `ID` which will identify a single `Post` to be deleted.\n  \"\"\"\n  nodeId: ID!\n}\n\n\"\"\"All input for the `deletePost` mutation.\"\"\"\ninput pg_DeletePostInput {\n  \"\"\"\n  An arbitrary string value with no semantic meaning. Will be included in the\n  payload verbatim. May be used to track mutations by the client.\n  \"\"\"\n  clientMutationId: String\n  id: Int!\n}\n\n\"\"\"The output of our delete `Post` mutation.\"\"\"\ntype pg_DeletePostPayload {\n  \"\"\"Reads a single `User` that is related to this `Post`.\"\"\"\n  author: pg_User\n  \"\"\"\n  The exact same `clientMutationId` that was provided in the mutation input,\n  unchanged and unused. May be used by a client to track mutations.\n  \"\"\"\n  clientMutationId: String\n  deletedPostNodeId: ID\n  \"\"\"The `Post` that was deleted by this mutation.\"\"\"\n  post: pg_Post\n  \"\"\"An edge for our `Post`. May be used by Relay 1.\"\"\"\n  postEdge(\n    \"\"\"The method to use when ordering `Post`.\"\"\"\n    orderBy: [pg_PostsOrderBy!] = [PRIMARY_KEY_ASC]\n  ): pg_PostsEdge\n  \"\"\"\n  Our root query field type. Allows us to run any query from our mutation payload.\n  \"\"\"\n  query: Query\n  _join: Query!\n}\n\n\"\"\"All input for the `deleteUserByNodeId` mutation.\"\"\"\ninput pg_DeleteUserByNodeIdInput {\n  \"\"\"\n  An arbitrary string value with no semantic meaning. Will be included in the\n  payload verbatim. May be used to track mutations by the client.\n  \"\"\"\n  clientMutationId: String\n  \"\"\"\n  The globally unique `ID` which will identify a single `User` to be deleted.\n  \"\"\"\n  nodeId: ID!\n}\n\n\"\"\"All input for the `deleteUser` mutation.\"\"\"\ninput pg_DeleteUserInput {\n  \"\"\"\n  An arbitrary string value with no semantic meaning. Will be included in the\n  payload verbatim. May be used to track mutations by the client.\n  \"\"\"\n  clientMutationId: String\n  id: Int!\n}\n\n\"\"\"The output of our delete `User` mutation.\"\"\"\ntype pg_DeleteUserPayload {\n  \"\"\"\n  The exact same `clientMutationId` that was provided in the mutation input,\n  unchanged and unused. May be used by a client to track mutations.\n  \"\"\"\n  clientMutationId: String\n  deletedUserNodeId: ID\n  \"\"\"\n  Our root query field type. Allows us to run any query from our mutation payload.\n  \"\"\"\n  query: Query\n  \"\"\"The `User` that was deleted by this mutation.\"\"\"\n  user: pg_User\n  \"\"\"An edge for our `User`. May be used by Relay 1.\"\"\"\n  userEdge(\n    \"\"\"The method to use when ordering `User`.\"\"\"\n    orderBy: [pg_UsersOrderBy!] = [PRIMARY_KEY_ASC]\n  ): pg_UsersEdge\n  _join: Query!\n}\n\n\"\"\"\nThe root mutation type which contains root level fields which mutate data.\n\"\"\"\ntype Mutation {\n  \"\"\"Creates a single `Post`.\"\"\"\n  pg_createPost(\n    \"\"\"\n    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\n    \"\"\"\n    input: pg_CreatePostInput!\n  ): pg_CreatePostPayload\n  \"\"\"Creates a single `User`.\"\"\"\n  pg_createUser(\n    \"\"\"\n    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\n    \"\"\"\n    input: pg_CreateUserInput!\n  ): pg_CreateUserPayload\n  \"\"\"Deletes a single `Post` using a unique key.\"\"\"\n  pg_deletePost(\n    \"\"\"\n    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\n    \"\"\"\n    input: pg_DeletePostInput!\n  ): pg_DeletePostPayload\n  \"\"\"Deletes a single `Post` using its globally unique id.\"\"\"\n  pg_deletePostByNodeId(\n    \"\"\"\n    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\n    \"\"\"\n    input: pg_DeletePostByNodeIdInput!\n  ): pg_DeletePostPayload\n  \"\"\"Deletes a single `User` using a unique key.\"\"\"\n  pg_deleteUser(\n    \"\"\"\n    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\n    \"\"\"\n    input: pg_DeleteUserInput!\n  ): pg_DeleteUserPayload\n  \"\"\"Deletes a single `User` using its globally unique id.\"\"\"\n  pg_deleteUserByNodeId(\n    \"\"\"\n    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\n    \"\"\"\n    input: pg_DeleteUserByNodeIdInput!\n  ): pg_DeleteUserPayload\n  \"\"\"Updates a single `Post` using a unique key and a patch.\"\"\"\n  pg_updatePost(\n    \"\"\"\n    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\n    \"\"\"\n    input: pg_UpdatePostInput!\n  ): pg_UpdatePostPayload\n  \"\"\"Updates a single `Post` using its globally unique id and a patch.\"\"\"\n  pg_updatePostByNodeId(\n    \"\"\"\n    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\n    \"\"\"\n    input: pg_UpdatePostByNodeIdInput!\n  ): pg_UpdatePostPayload\n  \"\"\"Updates a single `User` using a unique key and a patch.\"\"\"\n  pg_updateUser(\n    \"\"\"\n    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\n    \"\"\"\n    input: pg_UpdateUserInput!\n  ): pg_UpdateUserPayload\n  \"\"\"Updates a single `User` using its globally unique id and a patch.\"\"\"\n  pg_updateUserByNodeId(\n    \"\"\"\n    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\n    \"\"\"\n    input: pg_UpdateUserByNodeIdInput!\n  ): pg_UpdateUserPayload\n}\n\n\"\"\"An object with a globally unique `ID`.\"\"\"\ninterface pg_Node {\n  \"\"\"\n  A globally unique identifier. Can be used in various places throughout the system to identify this single value.\n  \"\"\"\n  nodeId: ID!\n}\n\n\"\"\"Information about pagination in a connection.\"\"\"\ntype pg_PageInfo {\n  \"\"\"When paginating forwards, the cursor to continue.\"\"\"\n  endCursor: pg_Cursor\n  \"\"\"When paginating forwards, are there more items?\"\"\"\n  hasNextPage: Boolean!\n  \"\"\"When paginating backwards, are there more items?\"\"\"\n  hasPreviousPage: Boolean!\n  \"\"\"When paginating backwards, the cursor to continue.\"\"\"\n  startCursor: pg_Cursor\n  _join: Query!\n}\n\n\"\"\"Forum posts written by a user.\"\"\"\ntype pg_Post implements pg_Node {\n  \"\"\"Reads a single `User` that is related to this `Post`.\"\"\"\n  author: pg_User\n  authorId: Int!\n  body: String\n  createdDate: pg_Datetime\n  id: Int!\n  \"\"\"\n  A globally unique identifier. Can be used in various places throughout the system to identify this single value.\n  \"\"\"\n  nodeId: ID!\n  title: String\n  _join: Query!\n}\n\n\"\"\"\nA condition to be used against `Post` object types. All fields are tested for equality and combined with a logical ‘and.’\n\"\"\"\ninput pg_PostCondition {\n  \"\"\"Checks for equality with the object’s `authorId` field.\"\"\"\n  authorId: Int\n  \"\"\"Checks for equality with the object’s `body` field.\"\"\"\n  body: String\n  \"\"\"Checks for equality with the object’s `createdDate` field.\"\"\"\n  createdDate: pg_Datetime\n  \"\"\"Checks for equality with the object’s `id` field.\"\"\"\n  id: Int\n  \"\"\"Checks for equality with the object’s `title` field.\"\"\"\n  title: String\n}\n\n\"\"\"An input for mutations affecting `Post`\"\"\"\ninput pg_PostInput {\n  authorId: Int!\n  body: String\n  createdDate: pg_Datetime\n  id: Int\n  title: String\n}\n\n\"\"\"Represents an update to a `Post`. Fields that are set will be updated.\"\"\"\ninput pg_PostPatch {\n  authorId: Int\n  body: String\n  createdDate: pg_Datetime\n  id: Int\n  title: String\n}\n\n\"\"\"A connection to a list of `Post` values.\"\"\"\ntype pg_PostsConnection {\n  \"\"\"\n  A list of edges which contains the `Post` and cursor to aid in pagination.\n  \"\"\"\n  edges: [pg_PostsEdge!]!\n  \"\"\"A list of `Post` objects.\"\"\"\n  nodes: [pg_Post!]!\n  \"\"\"Information to aid in pagination.\"\"\"\n  pageInfo: pg_PageInfo!\n  \"\"\"The count of *all* `Post` you could get from the connection.\"\"\"\n  totalCount: Int!\n  _join: Query!\n}\n\n\"\"\"A `Post` edge in the connection.\"\"\"\ntype pg_PostsEdge {\n  \"\"\"A cursor for use in pagination.\"\"\"\n  cursor: pg_Cursor\n  \"\"\"The `Post` at the end of the edge.\"\"\"\n  node: pg_Post!\n  _join: Query!\n}\n\n\"\"\"Methods to use when ordering `Post`.\"\"\"\nenum pg_PostsOrderBy {\n  AUTHOR_ID_ASC\n  AUTHOR_ID_DESC\n  BODY_ASC\n  BODY_DESC\n  CREATED_DATE_ASC\n  CREATED_DATE_DESC\n  ID_ASC\n  ID_DESC\n  NATURAL\n  PRIMARY_KEY_ASC\n  PRIMARY_KEY_DESC\n  TITLE_ASC\n  TITLE_DESC\n}\n\n\"\"\"\nThe root subscription type: contains events and live queries you can subscribe to with the `subscription` operation.\n\n#### Live Queries\n\nLive query fields are differentiated by containing `(live)` at the end of their\ndescription, they are added for each field in the `Query` type. When you\nsubscribe to a live query field, the selection set will be evaluated and sent to\nthe client, and then most things\\* that would cause the output of the selection\nset to change will trigger the selection set to be re-evaluated and the results\nto be re-sent to the client.\n\n_(\\* Not everything: typically only changes to persisted data referenced by the query are detected, not computed fields.)_\n\nLive queries can be very expensive, so try and keep them small and focussed.\n\n#### Events\n\nEvent fields will run their selection set when, and only when, the specified\nserver-side event occurs. This makes them a lot more efficient than Live\nQueries, but it is still recommended that you keep payloads fairly small.\n\"\"\"\ntype Subscription {\n  \"\"\"Fetches an object given its globally unique `ID`. (live)\"\"\"\n  pg_node(\n    \"\"\"The globally unique `ID`.\"\"\"\n    nodeId: ID!\n  ): pg_Node\n  \"\"\"\n  The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`. (live)\n  \"\"\"\n  pg_nodeId: ID!\n  \"\"\" (live)\"\"\"\n  pg_post(id: Int!): pg_Post\n  \"\"\"Reads a single `Post` using its globally unique `ID`. (live)\"\"\"\n  pg_postByNodeId(\n    \"\"\"The globally unique `ID` to be used in selecting a single `Post`.\"\"\"\n    nodeId: ID!\n  ): pg_Post\n  \"\"\"Reads and enables pagination through a set of `Post`. (live)\"\"\"\n  pg_posts(\n    \"\"\"Read all values in the set after (below) this cursor.\"\"\"\n    after: pg_Cursor\n    \"\"\"Read all values in the set before (above) this cursor.\"\"\"\n    before: pg_Cursor\n    \"\"\"\n    A condition to be used in determining which values should be returned by the collection.\n    \"\"\"\n    condition: pg_PostCondition\n    \"\"\"Only read the first `n` values of the set.\"\"\"\n    first: Int\n    \"\"\"Only read the last `n` values of the set.\"\"\"\n    last: Int\n    \"\"\"\n    Skip the first `n` values from our `after` cursor, an alternative to cursor\n    based pagination. May not be used with `last`.\n    \"\"\"\n    offset: Int\n    \"\"\"The method to use when ordering `Post`.\"\"\"\n    orderBy: [pg_PostsOrderBy!] = [PRIMARY_KEY_ASC]\n  ): pg_PostsConnection\n  \"\"\"\n  Exposes the root query type nested one level down. This is helpful for Relay 1\n  which can only query top level fields if they are in a particular form. (live)\n  \"\"\"\n  pg_query: Query!\n  \"\"\" (live)\"\"\"\n  pg_user(id: Int!): pg_User\n  \"\"\"Reads a single `User` using its globally unique `ID`. (live)\"\"\"\n  pg_userByNodeId(\n    \"\"\"The globally unique `ID` to be used in selecting a single `User`.\"\"\"\n    nodeId: ID!\n  ): pg_User\n  \"\"\"Reads and enables pagination through a set of `User`. (live)\"\"\"\n  pg_users(\n    \"\"\"Read all values in the set after (below) this cursor.\"\"\"\n    after: pg_Cursor\n    \"\"\"Read all values in the set before (above) this cursor.\"\"\"\n    before: pg_Cursor\n    \"\"\"\n    A condition to be used in determining which values should be returned by the collection.\n    \"\"\"\n    condition: pg_UserCondition\n    \"\"\"Only read the first `n` values of the set.\"\"\"\n    first: Int\n    \"\"\"Only read the last `n` values of the set.\"\"\"\n    last: Int\n    \"\"\"\n    Skip the first `n` values from our `after` cursor, an alternative to cursor\n    based pagination. May not be used with `last`.\n    \"\"\"\n    offset: Int\n    \"\"\"The method to use when ordering `User`.\"\"\"\n    orderBy: [pg_UsersOrderBy!] = [PRIMARY_KEY_ASC]\n  ): pg_UsersConnection\n}\n\n\"\"\"All input for the `updatePostByNodeId` mutation.\"\"\"\ninput pg_UpdatePostByNodeIdInput {\n  \"\"\"\n  An arbitrary string value with no semantic meaning. Will be included in the\n  payload verbatim. May be used to track mutations by the client.\n  \"\"\"\n  clientMutationId: String\n  \"\"\"\n  The globally unique `ID` which will identify a single `Post` to be updated.\n  \"\"\"\n  nodeId: ID!\n  \"\"\"\n  An object where the defined keys will be set on the `Post` being updated.\n  \"\"\"\n  patch: pg_PostPatch!\n}\n\n\"\"\"All input for the `updatePost` mutation.\"\"\"\ninput pg_UpdatePostInput {\n  \"\"\"\n  An arbitrary string value with no semantic meaning. Will be included in the\n  payload verbatim. May be used to track mutations by the client.\n  \"\"\"\n  clientMutationId: String\n  id: Int!\n  \"\"\"\n  An object where the defined keys will be set on the `Post` being updated.\n  \"\"\"\n  patch: pg_PostPatch!\n}\n\n\"\"\"The output of our update `Post` mutation.\"\"\"\ntype pg_UpdatePostPayload {\n  \"\"\"Reads a single `User` that is related to this `Post`.\"\"\"\n  author: pg_User\n  \"\"\"\n  The exact same `clientMutationId` that was provided in the mutation input,\n  unchanged and unused. May be used by a client to track mutations.\n  \"\"\"\n  clientMutationId: String\n  \"\"\"The `Post` that was updated by this mutation.\"\"\"\n  post: pg_Post\n  \"\"\"An edge for our `Post`. May be used by Relay 1.\"\"\"\n  postEdge(\n    \"\"\"The method to use when ordering `Post`.\"\"\"\n    orderBy: [pg_PostsOrderBy!] = [PRIMARY_KEY_ASC]\n  ): pg_PostsEdge\n  \"\"\"\n  Our root query field type. Allows us to run any query from our mutation payload.\n  \"\"\"\n  query: Query\n  _join: Query!\n}\n\n\"\"\"All input for the `updateUserByNodeId` mutation.\"\"\"\ninput pg_UpdateUserByNodeIdInput {\n  \"\"\"\n  An arbitrary string value with no semantic meaning. Will be included in the\n  payload verbatim. May be used to track mutations by the client.\n  \"\"\"\n  clientMutationId: String\n  \"\"\"\n  The globally unique `ID` which will identify a single `User` to be updated.\n  \"\"\"\n  nodeId: ID!\n  \"\"\"\n  An object where the defined keys will be set on the `User` being updated.\n  \"\"\"\n  patch: pg_UserPatch!\n}\n\n\"\"\"All input for the `updateUser` mutation.\"\"\"\ninput pg_UpdateUserInput {\n  \"\"\"\n  An arbitrary string value with no semantic meaning. Will be included in the\n  payload verbatim. May be used to track mutations by the client.\n  \"\"\"\n  clientMutationId: String\n  id: Int!\n  \"\"\"\n  An object where the defined keys will be set on the `User` being updated.\n  \"\"\"\n  patch: pg_UserPatch!\n}\n\n\"\"\"The output of our update `User` mutation.\"\"\"\ntype pg_UpdateUserPayload {\n  \"\"\"\n  The exact same `clientMutationId` that was provided in the mutation input,\n  unchanged and unused. May be used by a client to track mutations.\n  \"\"\"\n  clientMutationId: String\n  \"\"\"\n  Our root query field type. Allows us to run any query from our mutation payload.\n  \"\"\"\n  query: Query\n  \"\"\"The `User` that was updated by this mutation.\"\"\"\n  user: pg_User\n  \"\"\"An edge for our `User`. May be used by Relay 1.\"\"\"\n  userEdge(\n    \"\"\"The method to use when ordering `User`.\"\"\"\n    orderBy: [pg_UsersOrderBy!] = [PRIMARY_KEY_ASC]\n  ): pg_UsersEdge\n  _join: Query!\n}\n\n\"\"\"Forum users.\"\"\"\ntype pg_User implements pg_Node {\n  \"\"\"Reads and enables pagination through a set of `Post`.\"\"\"\n  authoredPosts(\n    \"\"\"Read all values in the set after (below) this cursor.\"\"\"\n    after: pg_Cursor\n    \"\"\"Read all values in the set before (above) this cursor.\"\"\"\n    before: pg_Cursor\n    \"\"\"\n    A condition to be used in determining which values should be returned by the collection.\n    \"\"\"\n    condition: pg_PostCondition\n    \"\"\"Only read the first `n` values of the set.\"\"\"\n    first: Int\n    \"\"\"Only read the last `n` values of the set.\"\"\"\n    last: Int\n    \"\"\"\n    Skip the first `n` values from our `after` cursor, an alternative to cursor\n    based pagination. May not be used with `last`.\n    \"\"\"\n    offset: Int\n    \"\"\"The method to use when ordering `Post`.\"\"\"\n    orderBy: [pg_PostsOrderBy!] = [PRIMARY_KEY_ASC]\n  ): pg_PostsConnection!\n  createdDate: pg_Datetime\n  id: Int!\n  \"\"\"\n  A globally unique identifier. Can be used in various places throughout the system to identify this single value.\n  \"\"\"\n  nodeId: ID!\n  username: String\n  _join: Query!\n}\n\n\"\"\"\nA condition to be used against `User` object types. All fields are tested for equality and combined with a logical ‘and.’\n\"\"\"\ninput pg_UserCondition {\n  \"\"\"Checks for equality with the object’s `createdDate` field.\"\"\"\n  createdDate: pg_Datetime\n  \"\"\"Checks for equality with the object’s `id` field.\"\"\"\n  id: Int\n  \"\"\"Checks for equality with the object’s `username` field.\"\"\"\n  username: String\n}\n\n\"\"\"An input for mutations affecting `User`\"\"\"\ninput pg_UserInput {\n  createdDate: pg_Datetime\n  id: Int\n  username: String\n}\n\n\"\"\"Represents an update to a `User`. Fields that are set will be updated.\"\"\"\ninput pg_UserPatch {\n  createdDate: pg_Datetime\n  id: Int\n  username: String\n}\n\n\"\"\"A connection to a list of `User` values.\"\"\"\ntype pg_UsersConnection {\n  \"\"\"\n  A list of edges which contains the `User` and cursor to aid in pagination.\n  \"\"\"\n  edges: [pg_UsersEdge!]!\n  \"\"\"A list of `User` objects.\"\"\"\n  nodes: [pg_User!]!\n  \"\"\"Information to aid in pagination.\"\"\"\n  pageInfo: pg_PageInfo!\n  \"\"\"The count of *all* `User` you could get from the connection.\"\"\"\n  totalCount: Int!\n  _join: Query!\n}\n\n\"\"\"A `User` edge in the connection.\"\"\"\ntype pg_UsersEdge {\n  \"\"\"A cursor for use in pagination.\"\"\"\n  cursor: pg_Cursor\n  \"\"\"The `User` at the end of the edge.\"\"\"\n  node: pg_User!\n  _join: Query!\n}\n\n\"\"\"Methods to use when ordering `User`.\"\"\"\nenum pg_UsersOrderBy {\n  CREATED_DATE_ASC\n  CREATED_DATE_DESC\n  ID_ASC\n  ID_DESC\n  NATURAL\n  PRIMARY_KEY_ASC\n  PRIMARY_KEY_DESC\n  USERNAME_ASC\n  USERNAME_DESC\n}\n\nenum COMMON_REGEX_PATTERN {\n  EMAIL\n  DOMAIN\n}\n\nenum WG_ROLE {\n  admin\n  user\n}\n\n\"\"\"Well known claims - https://www.iana.org/assignments/jwt/jwt.xhtml\"\"\"\nenum WG_CLAIM {\n  \"\"\"iss\"\"\"\n  ISSUER\n  \"\"\"deprecated alias for ISSUER\"\"\"\n  PROVIDER\n  \"\"\"sub\"\"\"\n  SUBJECT\n  \"\"\"alias for sub\"\"\"\n  USERID\n  \"\"\"name\"\"\"\n  NAME\n  \"\"\"given_name\"\"\"\n  GIVEN_NAME\n  \"\"\"family_name\"\"\"\n  FAMILY_NAME\n  \"\"\"middle_name\"\"\"\n  MIDDLE_NAME\n  \"\"\"nickname\"\"\"\n  NICKNAME\n  \"\"\"preferred_username\"\"\"\n  PREFERRED_USERNAME\n  \"\"\"profile\"\"\"\n  PROFILE\n  \"\"\"picture\"\"\"\n  PICTURE\n  \"\"\"website\"\"\"\n  WEBSITE\n  \"\"\"email\"\"\"\n  EMAIL\n  \"\"\"email_verified\"\"\"\n  EMAIL_VERIFIED\n  \"\"\"gender\"\"\"\n  GENDER\n  \"\"\"birthdate\"\"\"\n  BIRTH_DATE\n  \"\"\"zoneinfo\"\"\"\n  ZONE_INFO\n  \"\"\"locale\"\"\"\n  LOCALE\n  \"\"\"location\"\"\"\n  LOCATION\n}\n\nenum WunderGraphDateTimeFormat {\n  \"\"\"2006-01-02T15:04:05-0700\"\"\"\n  ISO8601\n  \"\"\"Mon Jan _2 15:04:05 2006\"\"\"\n  ANSIC\n  \"\"\"Mon Jan _2 15:04:05 MST 2006\"\"\"\n  UnixDate\n  \"\"\"Mon Jan 02 15:04:05 -0700 2006\"\"\"\n  RubyDate\n  \"\"\"02 Jan 06 15:04 MST\"\"\"\n  RFC822\n  \"\"\"02 Jan 06 15:04 -0700\"\"\"\n  RFC822Z\n  \"\"\"Monday, 02-Jan-06 15:04:05 MST\"\"\"\n  RFC850\n  \"\"\"Mon, 02 Jan 2006 15:04:05 MST\"\"\"\n  RFC1123\n  \"\"\"Mon, 02 Jan 2006 15:04:05 -0700\"\"\"\n  RFC1123Z\n  \"\"\"2006-01-02T15:04:05Z07:00\"\"\"\n  RFC3339\n  \"\"\"2006-01-02T15:04:05.999999999Z07:00\"\"\"\n  RFC3339Nano\n  \"\"\"3:04PM\"\"\"\n  Kitchen\n  \"\"\"Jan _2 15:04:05\"\"\"\n  Stamp\n  \"\"\"Jan _2 15:04:05.000\"\"\"\n  StampMilli\n  \"\"\"Jan _2 15:04:05.000000\"\"\"\n  StampMicro\n  \"\"\"Jan _2 15:04:05.000000000\"\"\"\n  StampNano\n}",
+      "datasourceConfigurations": [
+        {
+          "id": "",
+          "kind": 2,
+          "customGraphql": {
+            "fetch": {
+              "url": {
+                "kind": 0,
+                "environmentVariableDefaultValue": "",
+                "environmentVariableName": "",
+                "placeholderVariableName": "",
+                "staticVariableContent": "https://countries.trevorblades.com/"
+              },
+              "baseUrl": {
+                "kind": 0,
+                "environmentVariableDefaultValue": "",
+                "environmentVariableName": "",
+                "placeholderVariableName": "",
+                "staticVariableContent": ""
+              },
+              "path": {
+                "kind": 0,
+                "environmentVariableDefaultValue": "",
+                "environmentVariableName": "",
+                "placeholderVariableName": "",
+                "staticVariableContent": ""
+              },
+              "method": 1,
+              "body": {
+                "kind": 0,
+                "environmentVariableDefaultValue": "",
+                "environmentVariableName": "",
+                "placeholderVariableName": "",
+                "staticVariableContent": ""
+              },
+              "header": {},
+              "query": [],
+              "urlEncodeBody": false
+            },
+            "federation": {
+              "enabled": false,
+              "serviceSdl": ""
+            },
+            "subscription": {
+              "enabled": false,
+              "url": {
+                "kind": 0,
+                "environmentVariableDefaultValue": "",
+                "environmentVariableName": "",
+                "placeholderVariableName": "",
+                "staticVariableContent": "https://countries.trevorblades.com/"
+              },
+              "useSSE": false
+            },
+            "upstreamSchema": "type Continent {\n  code: ID!\n  countries: [Country!]!\n  name: String!\n}\n\ninput ContinentFilterInput {\n  code: StringQueryOperatorInput\n}\n\ntype Country {\n  awsRegion: String!\n  capital: String\n  code: ID!\n  continent: Continent!\n  currencies: [String!]!\n  currency: String\n  emoji: String!\n  emojiU: String!\n  languages: [Language!]!\n  name(lang: String): String!\n  native: String!\n  phone: String!\n  phones: [String!]!\n  states: [State!]!\n  subdivisions: [Subdivision!]!\n}\n\ninput CountryFilterInput {\n  code: StringQueryOperatorInput\n  continent: StringQueryOperatorInput\n  currency: StringQueryOperatorInput\n}\n\ntype Language {\n  code: ID!\n  name: String!\n  native: String!\n  rtl: Boolean!\n}\n\ninput LanguageFilterInput {\n  code: StringQueryOperatorInput\n}\n\ntype Query {\n  continent(code: ID!): Continent\n  continents(filter: ContinentFilterInput = {}): [Continent!]!\n  countries(filter: CountryFilterInput = {}): [Country!]!\n  country(code: ID!): Country\n  language(code: ID!): Language\n  languages(filter: LanguageFilterInput = {}): [Language!]!\n}\n\ntype State {\n  code: String\n  country: Country!\n  name: String!\n}\n\ninput StringQueryOperatorInput {\n  eq: String\n  in: [String!]\n  ne: String\n  nin: [String!]\n  regex: String\n}\n\ntype Subdivision {\n  code: ID!\n  emoji: String\n  name: String!\n}",
+            "hooksConfiguration": {
+              "onWSTransportConnectionInit": false
+            },
+            "customScalarTypeFields": []
+          },
+          "rootNodes": [
+            {
+              "typeName": "Query",
+              "fieldNames": [
+                "countries_continent",
+                "countries_continents",
+                "countries_countries",
+                "countries_country",
+                "countries_language",
+                "countries_languages"
+              ]
+            }
+          ],
+          "childNodes": [
+            {
+              "typeName": "countries_Continent",
+              "fieldNames": [
+                "code",
+                "countries",
+                "name"
+              ]
+            },
+            {
+              "typeName": "countries_Country",
+              "fieldNames": [
+                "awsRegion",
+                "capital",
+                "code",
+                "continent",
+                "currencies",
+                "currency",
+                "emoji",
+                "emojiU",
+                "languages",
+                "name",
+                "native",
+                "phone",
+                "phones",
+                "states",
+                "subdivisions"
+              ]
+            },
+            {
+              "typeName": "countries_Language",
+              "fieldNames": [
+                "code",
+                "name",
+                "native",
+                "rtl"
+              ]
+            },
+            {
+              "typeName": "countries_State",
+              "fieldNames": [
+                "code",
+                "country",
+                "name"
+              ]
+            },
+            {
+              "typeName": "countries_Subdivision",
+              "fieldNames": [
+                "code",
+                "emoji",
+                "name"
+              ]
+            }
+          ],
+          "overrideFieldPathFromAlias": true,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 2,
+          "customGraphql": {
+            "fetch": {
+              "url": {
+                "kind": 0,
+                "environmentVariableDefaultValue": "",
+                "environmentVariableName": "",
+                "placeholderVariableName": "",
+                "staticVariableContent": "http://localhost:5000/graphql"
+              },
+              "baseUrl": {
+                "kind": 0,
+                "environmentVariableDefaultValue": "",
+                "environmentVariableName": "",
+                "placeholderVariableName": "",
+                "staticVariableContent": ""
+              },
+              "path": {
+                "kind": 0,
+                "environmentVariableDefaultValue": "",
+                "environmentVariableName": "",
+                "placeholderVariableName": "",
+                "staticVariableContent": ""
+              },
+              "method": 1,
+              "body": {
+                "kind": 0,
+                "environmentVariableDefaultValue": "",
+                "environmentVariableName": "",
+                "placeholderVariableName": "",
+                "staticVariableContent": ""
+              },
+              "header": {},
+              "query": [],
+              "urlEncodeBody": false
+            },
+            "federation": {
+              "enabled": false,
+              "serviceSdl": ""
+            },
+            "subscription": {
+              "enabled": true,
+              "url": {
+                "kind": 0,
+                "environmentVariableDefaultValue": "",
+                "environmentVariableName": "",
+                "placeholderVariableName": "",
+                "staticVariableContent": "http://localhost:5000/graphql"
+              },
+              "useSSE": false
+            },
+            "upstreamSchema": "\"\"\"All input for the create `Post` mutation.\"\"\"\ninput CreatePostInput {\n  \"An arbitrary string value with no semantic meaning. Will be included in the\\npayload verbatim. May be used to track mutations by the client.\"\n  clientMutationId: String\n  \"The `Post` to be created by this mutation.\"\n  post: PostInput!\n}\n\n\"\"\"The output of our create `Post` mutation.\"\"\"\ntype CreatePostPayload {\n  \"Reads a single `User` that is related to this `Post`.\"\n  author: User\n  \"The exact same `clientMutationId` that was provided in the mutation input,\\nunchanged and unused. May be used by a client to track mutations.\"\n  clientMutationId: String\n  \"The `Post` that was created by this mutation.\"\n  post: Post\n  \"An edge for our `Post`. May be used by Relay 1.\"\n  postEdge(\n    \"The method to use when ordering `Post`.\"\n    orderBy: [PostsOrderBy!] = [PRIMARY_KEY_ASC]\n  ): PostsEdge\n  \"Our root query field type. Allows us to run any query from our mutation payload.\"\n  query: Query\n}\n\n\"\"\"All input for the create `User` mutation.\"\"\"\ninput CreateUserInput {\n  \"An arbitrary string value with no semantic meaning. Will be included in the\\npayload verbatim. May be used to track mutations by the client.\"\n  clientMutationId: String\n  \"The `User` to be created by this mutation.\"\n  user: UserInput!\n}\n\n\"\"\"The output of our create `User` mutation.\"\"\"\ntype CreateUserPayload {\n  \"The exact same `clientMutationId` that was provided in the mutation input,\\nunchanged and unused. May be used by a client to track mutations.\"\n  clientMutationId: String\n  \"Our root query field type. Allows us to run any query from our mutation payload.\"\n  query: Query\n  \"The `User` that was created by this mutation.\"\n  user: User\n  \"An edge for our `User`. May be used by Relay 1.\"\n  userEdge(\n    \"The method to use when ordering `User`.\"\n    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]\n  ): UsersEdge\n}\n\n\"\"\"A location in a connection that can be used for resuming pagination.\"\"\"\nscalar Cursor\n\n\"\"\"\nA point in time as described by the [ISO\n8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone.\n\"\"\"\nscalar Datetime\n\n\"\"\"All input for the `deletePostByNodeId` mutation.\"\"\"\ninput DeletePostByNodeIdInput {\n  \"An arbitrary string value with no semantic meaning. Will be included in the\\npayload verbatim. May be used to track mutations by the client.\"\n  clientMutationId: String\n  \"The globally unique `ID` which will identify a single `Post` to be deleted.\"\n  nodeId: ID!\n}\n\n\"\"\"All input for the `deletePost` mutation.\"\"\"\ninput DeletePostInput {\n  \"An arbitrary string value with no semantic meaning. Will be included in the\\npayload verbatim. May be used to track mutations by the client.\"\n  clientMutationId: String\n  id: Int!\n}\n\n\"\"\"The output of our delete `Post` mutation.\"\"\"\ntype DeletePostPayload {\n  \"Reads a single `User` that is related to this `Post`.\"\n  author: User\n  \"The exact same `clientMutationId` that was provided in the mutation input,\\nunchanged and unused. May be used by a client to track mutations.\"\n  clientMutationId: String\n  deletedPostNodeId: ID\n  \"The `Post` that was deleted by this mutation.\"\n  post: Post\n  \"An edge for our `Post`. May be used by Relay 1.\"\n  postEdge(\n    \"The method to use when ordering `Post`.\"\n    orderBy: [PostsOrderBy!] = [PRIMARY_KEY_ASC]\n  ): PostsEdge\n  \"Our root query field type. Allows us to run any query from our mutation payload.\"\n  query: Query\n}\n\n\"\"\"All input for the `deleteUserByNodeId` mutation.\"\"\"\ninput DeleteUserByNodeIdInput {\n  \"An arbitrary string value with no semantic meaning. Will be included in the\\npayload verbatim. May be used to track mutations by the client.\"\n  clientMutationId: String\n  \"The globally unique `ID` which will identify a single `User` to be deleted.\"\n  nodeId: ID!\n}\n\n\"\"\"All input for the `deleteUser` mutation.\"\"\"\ninput DeleteUserInput {\n  \"An arbitrary string value with no semantic meaning. Will be included in the\\npayload verbatim. May be used to track mutations by the client.\"\n  clientMutationId: String\n  id: Int!\n}\n\n\"\"\"The output of our delete `User` mutation.\"\"\"\ntype DeleteUserPayload {\n  \"The exact same `clientMutationId` that was provided in the mutation input,\\nunchanged and unused. May be used by a client to track mutations.\"\n  clientMutationId: String\n  deletedUserNodeId: ID\n  \"Our root query field type. Allows us to run any query from our mutation payload.\"\n  query: Query\n  \"The `User` that was deleted by this mutation.\"\n  user: User\n  \"An edge for our `User`. May be used by Relay 1.\"\n  userEdge(\n    \"The method to use when ordering `User`.\"\n    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]\n  ): UsersEdge\n}\n\n\"\"\"\nThe root mutation type which contains root level fields which mutate data.\n\"\"\"\ntype Mutation {\n  \"Creates a single `Post`.\"\n  createPost(\n    \"The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\"\n    input: CreatePostInput!\n  ): CreatePostPayload\n  \"Creates a single `User`.\"\n  createUser(\n    \"The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\"\n    input: CreateUserInput!\n  ): CreateUserPayload\n  \"Deletes a single `Post` using a unique key.\"\n  deletePost(\n    \"The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\"\n    input: DeletePostInput!\n  ): DeletePostPayload\n  \"Deletes a single `Post` using its globally unique id.\"\n  deletePostByNodeId(\n    \"The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\"\n    input: DeletePostByNodeIdInput!\n  ): DeletePostPayload\n  \"Deletes a single `User` using a unique key.\"\n  deleteUser(\n    \"The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\"\n    input: DeleteUserInput!\n  ): DeleteUserPayload\n  \"Deletes a single `User` using its globally unique id.\"\n  deleteUserByNodeId(\n    \"The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\"\n    input: DeleteUserByNodeIdInput!\n  ): DeleteUserPayload\n  \"Updates a single `Post` using a unique key and a patch.\"\n  updatePost(\n    \"The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\"\n    input: UpdatePostInput!\n  ): UpdatePostPayload\n  \"Updates a single `Post` using its globally unique id and a patch.\"\n  updatePostByNodeId(\n    \"The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\"\n    input: UpdatePostByNodeIdInput!\n  ): UpdatePostPayload\n  \"Updates a single `User` using a unique key and a patch.\"\n  updateUser(\n    \"The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\"\n    input: UpdateUserInput!\n  ): UpdateUserPayload\n  \"Updates a single `User` using its globally unique id and a patch.\"\n  updateUserByNodeId(\n    \"The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.\"\n    input: UpdateUserByNodeIdInput!\n  ): UpdateUserPayload\n}\n\n\"\"\"An object with a globally unique `ID`.\"\"\"\ninterface Node {\n  \"A globally unique identifier. Can be used in various places throughout the system to identify this single value.\"\n  nodeId: ID!\n}\n\n\"\"\"Information about pagination in a connection.\"\"\"\ntype PageInfo {\n  \"When paginating forwards, the cursor to continue.\"\n  endCursor: Cursor\n  \"When paginating forwards, are there more items?\"\n  hasNextPage: Boolean!\n  \"When paginating backwards, are there more items?\"\n  hasPreviousPage: Boolean!\n  \"When paginating backwards, the cursor to continue.\"\n  startCursor: Cursor\n}\n\n\"\"\"Forum posts written by a user.\"\"\"\ntype Post implements Node {\n  \"Reads a single `User` that is related to this `Post`.\"\n  author: User\n  authorId: Int!\n  body: String\n  createdDate: Datetime\n  id: Int!\n  \"A globally unique identifier. Can be used in various places throughout the system to identify this single value.\"\n  nodeId: ID!\n  title: String\n}\n\n\"\"\"\nA condition to be used against `Post` object types. All fields are tested for equality and combined with a logical ‘and.’\n\"\"\"\ninput PostCondition {\n  \"Checks for equality with the object’s `authorId` field.\"\n  authorId: Int\n  \"Checks for equality with the object’s `body` field.\"\n  body: String\n  \"Checks for equality with the object’s `createdDate` field.\"\n  createdDate: Datetime\n  \"Checks for equality with the object’s `id` field.\"\n  id: Int\n  \"Checks for equality with the object’s `title` field.\"\n  title: String\n}\n\n\"\"\"An input for mutations affecting `Post`\"\"\"\ninput PostInput {\n  authorId: Int!\n  body: String\n  createdDate: Datetime\n  id: Int\n  title: String\n}\n\n\"\"\"Represents an update to a `Post`. Fields that are set will be updated.\"\"\"\ninput PostPatch {\n  authorId: Int\n  body: String\n  createdDate: Datetime\n  id: Int\n  title: String\n}\n\n\"\"\"A connection to a list of `Post` values.\"\"\"\ntype PostsConnection {\n  \"A list of edges which contains the `Post` and cursor to aid in pagination.\"\n  edges: [PostsEdge!]!\n  \"A list of `Post` objects.\"\n  nodes: [Post!]!\n  \"Information to aid in pagination.\"\n  pageInfo: PageInfo!\n  \"The count of *all* `Post` you could get from the connection.\"\n  totalCount: Int!\n}\n\n\"\"\"A `Post` edge in the connection.\"\"\"\ntype PostsEdge {\n  \"A cursor for use in pagination.\"\n  cursor: Cursor\n  \"The `Post` at the end of the edge.\"\n  node: Post!\n}\n\n\"\"\"Methods to use when ordering `Post`.\"\"\"\nenum PostsOrderBy {\n  AUTHOR_ID_ASC\n  AUTHOR_ID_DESC\n  BODY_ASC\n  BODY_DESC\n  CREATED_DATE_ASC\n  CREATED_DATE_DESC\n  ID_ASC\n  ID_DESC\n  NATURAL\n  PRIMARY_KEY_ASC\n  PRIMARY_KEY_DESC\n  TITLE_ASC\n  TITLE_DESC\n}\n\n\"\"\"The root query type which gives access points into the data universe.\"\"\"\ntype Query implements Node {\n  \"Fetches an object given its globally unique `ID`.\"\n  node(\n    \"The globally unique `ID`.\"\n    nodeId: ID!\n  ): Node\n  \"The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`.\"\n  nodeId: ID!\n  post(id: Int!): Post\n  \"Reads a single `Post` using its globally unique `ID`.\"\n  postByNodeId(\n    \"The globally unique `ID` to be used in selecting a single `Post`.\"\n    nodeId: ID!\n  ): Post\n  \"Reads and enables pagination through a set of `Post`.\"\n  posts(\n    \"Read all values in the set after (below) this cursor.\"\n    after: Cursor\n    \"Read all values in the set before (above) this cursor.\"\n    before: Cursor\n    \"A condition to be used in determining which values should be returned by the collection.\"\n    condition: PostCondition\n    \"Only read the first `n` values of the set.\"\n    first: Int\n    \"Only read the last `n` values of the set.\"\n    last: Int\n    \"Skip the first `n` values from our `after` cursor, an alternative to cursor\\nbased pagination. May not be used with `last`.\"\n    offset: Int\n    \"The method to use when ordering `Post`.\"\n    orderBy: [PostsOrderBy!] = [PRIMARY_KEY_ASC]\n  ): PostsConnection\n  \"Exposes the root query type nested one level down. This is helpful for Relay 1\\nwhich can only query top level fields if they are in a particular form.\"\n  query: Query!\n  user(id: Int!): User\n  \"Reads a single `User` using its globally unique `ID`.\"\n  userByNodeId(\n    \"The globally unique `ID` to be used in selecting a single `User`.\"\n    nodeId: ID!\n  ): User\n  \"Reads and enables pagination through a set of `User`.\"\n  users(\n    \"Read all values in the set after (below) this cursor.\"\n    after: Cursor\n    \"Read all values in the set before (above) this cursor.\"\n    before: Cursor\n    \"A condition to be used in determining which values should be returned by the collection.\"\n    condition: UserCondition\n    \"Only read the first `n` values of the set.\"\n    first: Int\n    \"Only read the last `n` values of the set.\"\n    last: Int\n    \"Skip the first `n` values from our `after` cursor, an alternative to cursor\\nbased pagination. May not be used with `last`.\"\n    offset: Int\n    \"The method to use when ordering `User`.\"\n    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]\n  ): UsersConnection\n}\n\n\"\"\"\nThe root subscription type: contains events and live queries you can subscribe to with the `subscription` operation.\n\n#### Live Queries\n\nLive query fields are differentiated by containing `(live)` at the end of their\ndescription, they are added for each field in the `Query` type. When you\nsubscribe to a live query field, the selection set will be evaluated and sent to\nthe client, and then most things\\* that would cause the output of the selection\nset to change will trigger the selection set to be re-evaluated and the results\nto be re-sent to the client.\n\n_(\\* Not everything: typically only changes to persisted data referenced by the query are detected, not computed fields.)_\n\nLive queries can be very expensive, so try and keep them small and focussed.\n\n#### Events\n\nEvent fields will run their selection set when, and only when, the specified\nserver-side event occurs. This makes them a lot more efficient than Live\nQueries, but it is still recommended that you keep payloads fairly small.\n\"\"\"\ntype Subscription {\n  \"Fetches an object given its globally unique `ID`. (live)\"\n  node(\n    \"The globally unique `ID`.\"\n    nodeId: ID!\n  ): Node\n  \"The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`. (live)\"\n  nodeId: ID!\n  \" (live)\"\n  post(id: Int!): Post\n  \"Reads a single `Post` using its globally unique `ID`. (live)\"\n  postByNodeId(\n    \"The globally unique `ID` to be used in selecting a single `Post`.\"\n    nodeId: ID!\n  ): Post\n  \"Reads and enables pagination through a set of `Post`. (live)\"\n  posts(\n    \"Read all values in the set after (below) this cursor.\"\n    after: Cursor\n    \"Read all values in the set before (above) this cursor.\"\n    before: Cursor\n    \"A condition to be used in determining which values should be returned by the collection.\"\n    condition: PostCondition\n    \"Only read the first `n` values of the set.\"\n    first: Int\n    \"Only read the last `n` values of the set.\"\n    last: Int\n    \"Skip the first `n` values from our `after` cursor, an alternative to cursor\\nbased pagination. May not be used with `last`.\"\n    offset: Int\n    \"The method to use when ordering `Post`.\"\n    orderBy: [PostsOrderBy!] = [PRIMARY_KEY_ASC]\n  ): PostsConnection\n  \"Exposes the root query type nested one level down. This is helpful for Relay 1\\nwhich can only query top level fields if they are in a particular form. (live)\"\n  query: Query!\n  \" (live)\"\n  user(id: Int!): User\n  \"Reads a single `User` using its globally unique `ID`. (live)\"\n  userByNodeId(\n    \"The globally unique `ID` to be used in selecting a single `User`.\"\n    nodeId: ID!\n  ): User\n  \"Reads and enables pagination through a set of `User`. (live)\"\n  users(\n    \"Read all values in the set after (below) this cursor.\"\n    after: Cursor\n    \"Read all values in the set before (above) this cursor.\"\n    before: Cursor\n    \"A condition to be used in determining which values should be returned by the collection.\"\n    condition: UserCondition\n    \"Only read the first `n` values of the set.\"\n    first: Int\n    \"Only read the last `n` values of the set.\"\n    last: Int\n    \"Skip the first `n` values from our `after` cursor, an alternative to cursor\\nbased pagination. May not be used with `last`.\"\n    offset: Int\n    \"The method to use when ordering `User`.\"\n    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]\n  ): UsersConnection\n}\n\n\"\"\"All input for the `updatePostByNodeId` mutation.\"\"\"\ninput UpdatePostByNodeIdInput {\n  \"An arbitrary string value with no semantic meaning. Will be included in the\\npayload verbatim. May be used to track mutations by the client.\"\n  clientMutationId: String\n  \"The globally unique `ID` which will identify a single `Post` to be updated.\"\n  nodeId: ID!\n  \"An object where the defined keys will be set on the `Post` being updated.\"\n  patch: PostPatch!\n}\n\n\"\"\"All input for the `updatePost` mutation.\"\"\"\ninput UpdatePostInput {\n  \"An arbitrary string value with no semantic meaning. Will be included in the\\npayload verbatim. May be used to track mutations by the client.\"\n  clientMutationId: String\n  id: Int!\n  \"An object where the defined keys will be set on the `Post` being updated.\"\n  patch: PostPatch!\n}\n\n\"\"\"The output of our update `Post` mutation.\"\"\"\ntype UpdatePostPayload {\n  \"Reads a single `User` that is related to this `Post`.\"\n  author: User\n  \"The exact same `clientMutationId` that was provided in the mutation input,\\nunchanged and unused. May be used by a client to track mutations.\"\n  clientMutationId: String\n  \"The `Post` that was updated by this mutation.\"\n  post: Post\n  \"An edge for our `Post`. May be used by Relay 1.\"\n  postEdge(\n    \"The method to use when ordering `Post`.\"\n    orderBy: [PostsOrderBy!] = [PRIMARY_KEY_ASC]\n  ): PostsEdge\n  \"Our root query field type. Allows us to run any query from our mutation payload.\"\n  query: Query\n}\n\n\"\"\"All input for the `updateUserByNodeId` mutation.\"\"\"\ninput UpdateUserByNodeIdInput {\n  \"An arbitrary string value with no semantic meaning. Will be included in the\\npayload verbatim. May be used to track mutations by the client.\"\n  clientMutationId: String\n  \"The globally unique `ID` which will identify a single `User` to be updated.\"\n  nodeId: ID!\n  \"An object where the defined keys will be set on the `User` being updated.\"\n  patch: UserPatch!\n}\n\n\"\"\"All input for the `updateUser` mutation.\"\"\"\ninput UpdateUserInput {\n  \"An arbitrary string value with no semantic meaning. Will be included in the\\npayload verbatim. May be used to track mutations by the client.\"\n  clientMutationId: String\n  id: Int!\n  \"An object where the defined keys will be set on the `User` being updated.\"\n  patch: UserPatch!\n}\n\n\"\"\"The output of our update `User` mutation.\"\"\"\ntype UpdateUserPayload {\n  \"The exact same `clientMutationId` that was provided in the mutation input,\\nunchanged and unused. May be used by a client to track mutations.\"\n  clientMutationId: String\n  \"Our root query field type. Allows us to run any query from our mutation payload.\"\n  query: Query\n  \"The `User` that was updated by this mutation.\"\n  user: User\n  \"An edge for our `User`. May be used by Relay 1.\"\n  userEdge(\n    \"The method to use when ordering `User`.\"\n    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]\n  ): UsersEdge\n}\n\n\"\"\"Forum users.\"\"\"\ntype User implements Node {\n  \"Reads and enables pagination through a set of `Post`.\"\n  authoredPosts(\n    \"Read all values in the set after (below) this cursor.\"\n    after: Cursor\n    \"Read all values in the set before (above) this cursor.\"\n    before: Cursor\n    \"A condition to be used in determining which values should be returned by the collection.\"\n    condition: PostCondition\n    \"Only read the first `n` values of the set.\"\n    first: Int\n    \"Only read the last `n` values of the set.\"\n    last: Int\n    \"Skip the first `n` values from our `after` cursor, an alternative to cursor\\nbased pagination. May not be used with `last`.\"\n    offset: Int\n    \"The method to use when ordering `Post`.\"\n    orderBy: [PostsOrderBy!] = [PRIMARY_KEY_ASC]\n  ): PostsConnection!\n  createdDate: Datetime\n  id: Int!\n  \"A globally unique identifier. Can be used in various places throughout the system to identify this single value.\"\n  nodeId: ID!\n  username: String\n}\n\n\"\"\"\nA condition to be used against `User` object types. All fields are tested for equality and combined with a logical ‘and.’\n\"\"\"\ninput UserCondition {\n  \"Checks for equality with the object’s `createdDate` field.\"\n  createdDate: Datetime\n  \"Checks for equality with the object’s `id` field.\"\n  id: Int\n  \"Checks for equality with the object’s `username` field.\"\n  username: String\n}\n\n\"\"\"An input for mutations affecting `User`\"\"\"\ninput UserInput {\n  createdDate: Datetime\n  id: Int\n  username: String\n}\n\n\"\"\"Represents an update to a `User`. Fields that are set will be updated.\"\"\"\ninput UserPatch {\n  createdDate: Datetime\n  id: Int\n  username: String\n}\n\n\"\"\"A connection to a list of `User` values.\"\"\"\ntype UsersConnection {\n  \"A list of edges which contains the `User` and cursor to aid in pagination.\"\n  edges: [UsersEdge!]!\n  \"A list of `User` objects.\"\n  nodes: [User!]!\n  \"Information to aid in pagination.\"\n  pageInfo: PageInfo!\n  \"The count of *all* `User` you could get from the connection.\"\n  totalCount: Int!\n}\n\n\"\"\"A `User` edge in the connection.\"\"\"\ntype UsersEdge {\n  \"A cursor for use in pagination.\"\n  cursor: Cursor\n  \"The `User` at the end of the edge.\"\n  node: User!\n}\n\n\"\"\"Methods to use when ordering `User`.\"\"\"\nenum UsersOrderBy {\n  CREATED_DATE_ASC\n  CREATED_DATE_DESC\n  ID_ASC\n  ID_DESC\n  NATURAL\n  PRIMARY_KEY_ASC\n  PRIMARY_KEY_DESC\n  USERNAME_ASC\n  USERNAME_DESC\n}",
+            "hooksConfiguration": {
+              "onWSTransportConnectionInit": false
+            },
+            "customScalarTypeFields": []
+          },
+          "rootNodes": [
+            {
+              "typeName": "Mutation",
+              "fieldNames": [
+                "pg_createPost",
+                "pg_createUser",
+                "pg_deletePost",
+                "pg_deletePostByNodeId",
+                "pg_deleteUser",
+                "pg_deleteUserByNodeId",
+                "pg_updatePost",
+                "pg_updatePostByNodeId",
+                "pg_updateUser",
+                "pg_updateUserByNodeId"
+              ]
+            },
+            {
+              "typeName": "Query",
+              "fieldNames": [
+                "pg_node",
+                "pg_nodeId",
+                "pg_post",
+                "pg_postByNodeId",
+                "pg_posts",
+                "pg_query",
+                "pg_user",
+                "pg_userByNodeId",
+                "pg_users"
+              ]
+            },
+            {
+              "typeName": "Subscription",
+              "fieldNames": [
+                "pg_node",
+                "pg_nodeId",
+                "pg_post",
+                "pg_postByNodeId",
+                "pg_posts",
+                "pg_query",
+                "pg_user",
+                "pg_userByNodeId",
+                "pg_users"
+              ]
+            }
+          ],
+          "childNodes": [
+            {
+              "typeName": "pg_CreatePostPayload",
+              "fieldNames": [
+                "author",
+                "clientMutationId",
+                "post",
+                "postEdge",
+                "query"
+              ]
+            },
+            {
+              "typeName": "pg_CreateUserPayload",
+              "fieldNames": [
+                "clientMutationId",
+                "query",
+                "user",
+                "userEdge"
+              ]
+            },
+            {
+              "typeName": "pg_DeletePostPayload",
+              "fieldNames": [
+                "author",
+                "clientMutationId",
+                "deletedPostNodeId",
+                "post",
+                "postEdge",
+                "query"
+              ]
+            },
+            {
+              "typeName": "pg_DeleteUserPayload",
+              "fieldNames": [
+                "clientMutationId",
+                "deletedUserNodeId",
+                "query",
+                "user",
+                "userEdge"
+              ]
+            },
+            {
+              "typeName": "pg_Node",
+              "fieldNames": [
+                "nodeId"
+              ]
+            },
+            {
+              "typeName": "pg_PageInfo",
+              "fieldNames": [
+                "endCursor",
+                "hasNextPage",
+                "hasPreviousPage",
+                "startCursor"
+              ]
+            },
+            {
+              "typeName": "pg_Post",
+              "fieldNames": [
+                "author",
+                "authorId",
+                "body",
+                "createdDate",
+                "id",
+                "nodeId",
+                "title"
+              ]
+            },
+            {
+              "typeName": "pg_PostsConnection",
+              "fieldNames": [
+                "edges",
+                "nodes",
+                "pageInfo",
+                "totalCount"
+              ]
+            },
+            {
+              "typeName": "pg_PostsEdge",
+              "fieldNames": [
+                "cursor",
+                "node"
+              ]
+            },
+            {
+              "typeName": "pg_UpdatePostPayload",
+              "fieldNames": [
+                "author",
+                "clientMutationId",
+                "post",
+                "postEdge",
+                "query"
+              ]
+            },
+            {
+              "typeName": "pg_UpdateUserPayload",
+              "fieldNames": [
+                "clientMutationId",
+                "query",
+                "user",
+                "userEdge"
+              ]
+            },
+            {
+              "typeName": "pg_User",
+              "fieldNames": [
+                "authoredPosts",
+                "createdDate",
+                "id",
+                "nodeId",
+                "username"
+              ]
+            },
+            {
+              "typeName": "pg_UsersConnection",
+              "fieldNames": [
+                "edges",
+                "nodes",
+                "pageInfo",
+                "totalCount"
+              ]
+            },
+            {
+              "typeName": "pg_UsersEdge",
+              "fieldNames": [
+                "cursor",
+                "node"
+              ]
+            }
+          ],
+          "overrideFieldPathFromAlias": true,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "countries_Continent",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "countries_Country",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "countries_Language",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "countries_State",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "countries_Subdivision",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "pg_CreatePostPayload",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "pg_CreateUserPayload",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "pg_DeletePostPayload",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "pg_DeleteUserPayload",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "pg_PageInfo",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "pg_Post",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "pg_PostsConnection",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "pg_PostsEdge",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "pg_UpdatePostPayload",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "pg_UpdateUserPayload",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "pg_User",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "pg_UsersConnection",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        },
+        {
+          "id": "",
+          "kind": 0,
+          "rootNodes": [
+            {
+              "typeName": "pg_UsersEdge",
+              "fieldNames": [
+                "_join"
+              ]
+            }
+          ],
+          "childNodes": [],
+          "customStatic": {
+            "data": {
+              "kind": 0,
+              "staticVariableContent": "{}",
+              "placeholderVariableName": "",
+              "environmentVariableDefaultValue": "",
+              "environmentVariableName": ""
+            }
+          },
+          "overrideFieldPathFromAlias": false,
+          "directives": [],
+          "requestTimeoutSeconds": 0
+        }
+      ],
+      "fieldConfigurations": [
+        {
+          "typeName": "countries_Country",
+          "fieldName": "name",
+          "argumentsConfiguration": [
+            {
+              "name": "lang",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "name"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "countries_continent",
+          "argumentsConfiguration": [
+            {
+              "name": "code",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "continent"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "countries_continents",
+          "argumentsConfiguration": [
+            {
+              "name": "filter",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "continents"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "countries_countries",
+          "argumentsConfiguration": [
+            {
+              "name": "filter",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "countries"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "countries_country",
+          "argumentsConfiguration": [
+            {
+              "name": "code",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "country"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "countries_language",
+          "argumentsConfiguration": [
+            {
+              "name": "code",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "language"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "countries_languages",
+          "argumentsConfiguration": [
+            {
+              "name": "filter",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "languages"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_CreatePostPayload",
+          "fieldName": "postEdge",
+          "argumentsConfiguration": [
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "postEdge"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_CreateUserPayload",
+          "fieldName": "userEdge",
+          "argumentsConfiguration": [
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "userEdge"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_DeletePostPayload",
+          "fieldName": "postEdge",
+          "argumentsConfiguration": [
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "postEdge"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_DeleteUserPayload",
+          "fieldName": "userEdge",
+          "argumentsConfiguration": [
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "userEdge"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "pg_createPost",
+          "argumentsConfiguration": [
+            {
+              "name": "input",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "createPost"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "pg_createUser",
+          "argumentsConfiguration": [
+            {
+              "name": "input",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "createUser"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "pg_deletePost",
+          "argumentsConfiguration": [
+            {
+              "name": "input",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "deletePost"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "pg_deletePostByNodeId",
+          "argumentsConfiguration": [
+            {
+              "name": "input",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "deletePostByNodeId"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "pg_deleteUser",
+          "argumentsConfiguration": [
+            {
+              "name": "input",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "deleteUser"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "pg_deleteUserByNodeId",
+          "argumentsConfiguration": [
+            {
+              "name": "input",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "deleteUserByNodeId"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "pg_updatePost",
+          "argumentsConfiguration": [
+            {
+              "name": "input",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "updatePost"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "pg_updatePostByNodeId",
+          "argumentsConfiguration": [
+            {
+              "name": "input",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "updatePostByNodeId"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "pg_updateUser",
+          "argumentsConfiguration": [
+            {
+              "name": "input",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "updateUser"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Mutation",
+          "fieldName": "pg_updateUserByNodeId",
+          "argumentsConfiguration": [
+            {
+              "name": "input",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "updateUserByNodeId"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "pg_node",
+          "argumentsConfiguration": [
+            {
+              "name": "nodeId",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "node"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "pg_post",
+          "argumentsConfiguration": [
+            {
+              "name": "id",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "post"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "pg_postByNodeId",
+          "argumentsConfiguration": [
+            {
+              "name": "nodeId",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "postByNodeId"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "pg_posts",
+          "argumentsConfiguration": [
+            {
+              "name": "after",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "before",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "condition",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "first",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "last",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "offset",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "posts"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "pg_user",
+          "argumentsConfiguration": [
+            {
+              "name": "id",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "user"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "pg_userByNodeId",
+          "argumentsConfiguration": [
+            {
+              "name": "nodeId",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "userByNodeId"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "pg_users",
+          "argumentsConfiguration": [
+            {
+              "name": "after",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "before",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "condition",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "first",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "last",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "offset",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "users"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Subscription",
+          "fieldName": "pg_node",
+          "argumentsConfiguration": [
+            {
+              "name": "nodeId",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "node"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Subscription",
+          "fieldName": "pg_post",
+          "argumentsConfiguration": [
+            {
+              "name": "id",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "post"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Subscription",
+          "fieldName": "pg_postByNodeId",
+          "argumentsConfiguration": [
+            {
+              "name": "nodeId",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "postByNodeId"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Subscription",
+          "fieldName": "pg_posts",
+          "argumentsConfiguration": [
+            {
+              "name": "after",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "before",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "condition",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "first",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "last",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "offset",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "posts"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Subscription",
+          "fieldName": "pg_user",
+          "argumentsConfiguration": [
+            {
+              "name": "id",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "user"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Subscription",
+          "fieldName": "pg_userByNodeId",
+          "argumentsConfiguration": [
+            {
+              "name": "nodeId",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "userByNodeId"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Subscription",
+          "fieldName": "pg_users",
+          "argumentsConfiguration": [
+            {
+              "name": "after",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "before",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "condition",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "first",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "last",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "offset",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "users"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_UpdatePostPayload",
+          "fieldName": "postEdge",
+          "argumentsConfiguration": [
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "postEdge"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_UpdateUserPayload",
+          "fieldName": "userEdge",
+          "argumentsConfiguration": [
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "userEdge"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_User",
+          "fieldName": "authoredPosts",
+          "argumentsConfiguration": [
+            {
+              "name": "after",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "before",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "condition",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "first",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "last",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "offset",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            },
+            {
+              "name": "orderBy",
+              "sourceType": 1,
+              "sourcePath": [],
+              "renderConfiguration": 0,
+              "renameTypeTo": ""
+            }
+          ],
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "authoredPosts"
+          ],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "pg_nodeId",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "nodeId"
+          ],
+          "argumentsConfiguration": [],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Query",
+          "fieldName": "pg_query",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "query"
+          ],
+          "argumentsConfiguration": [],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Subscription",
+          "fieldName": "pg_nodeId",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "nodeId"
+          ],
+          "argumentsConfiguration": [],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "Subscription",
+          "fieldName": "pg_query",
+          "disableDefaultFieldMapping": false,
+          "path": [
+            "query"
+          ],
+          "argumentsConfiguration": [],
+          "requiresFields": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "countries_Continent",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "countries_Country",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "countries_Language",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "countries_State",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "countries_Subdivision",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_CreatePostPayload",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_CreateUserPayload",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_DeletePostPayload",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_DeleteUserPayload",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_PageInfo",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_Post",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_PostsConnection",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_PostsEdge",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_UpdatePostPayload",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_UpdateUserPayload",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_User",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_UsersConnection",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        },
+        {
+          "typeName": "pg_UsersEdge",
+          "fieldName": "_join",
+          "disableDefaultFieldMapping": true,
+          "path": [
+            "_join"
+          ],
+          "requiresFields": [],
+          "argumentsConfiguration": [],
+          "unescapeResponseJson": false
+        }
+      ],
+      "typeConfigurations": [
+        {
+          "typeName": "countries_Continent",
+          "renameTo": "Continent"
+        },
+        {
+          "typeName": "countries_ContinentFilterInput",
+          "renameTo": "ContinentFilterInput"
+        },
+        {
+          "typeName": "countries_Country",
+          "renameTo": "Country"
+        },
+        {
+          "typeName": "countries_CountryFilterInput",
+          "renameTo": "CountryFilterInput"
+        },
+        {
+          "typeName": "countries_Language",
+          "renameTo": "Language"
+        },
+        {
+          "typeName": "countries_LanguageFilterInput",
+          "renameTo": "LanguageFilterInput"
+        },
+        {
+          "typeName": "countries_State",
+          "renameTo": "State"
+        },
+        {
+          "typeName": "countries_StringQueryOperatorInput",
+          "renameTo": "StringQueryOperatorInput"
+        },
+        {
+          "typeName": "countries_Subdivision",
+          "renameTo": "Subdivision"
+        },
+        {
+          "typeName": "pg_CreatePostInput",
+          "renameTo": "CreatePostInput"
+        },
+        {
+          "typeName": "pg_CreatePostPayload",
+          "renameTo": "CreatePostPayload"
+        },
+        {
+          "typeName": "pg_CreateUserInput",
+          "renameTo": "CreateUserInput"
+        },
+        {
+          "typeName": "pg_CreateUserPayload",
+          "renameTo": "CreateUserPayload"
+        },
+        {
+          "typeName": "pg_Cursor",
+          "renameTo": "Cursor"
+        },
+        {
+          "typeName": "pg_Datetime",
+          "renameTo": "Datetime"
+        },
+        {
+          "typeName": "pg_DeletePostByNodeIdInput",
+          "renameTo": "DeletePostByNodeIdInput"
+        },
+        {
+          "typeName": "pg_DeletePostInput",
+          "renameTo": "DeletePostInput"
+        },
+        {
+          "typeName": "pg_DeletePostPayload",
+          "renameTo": "DeletePostPayload"
+        },
+        {
+          "typeName": "pg_DeleteUserByNodeIdInput",
+          "renameTo": "DeleteUserByNodeIdInput"
+        },
+        {
+          "typeName": "pg_DeleteUserInput",
+          "renameTo": "DeleteUserInput"
+        },
+        {
+          "typeName": "pg_DeleteUserPayload",
+          "renameTo": "DeleteUserPayload"
+        },
+        {
+          "typeName": "pg_Node",
+          "renameTo": "Node"
+        },
+        {
+          "typeName": "pg_PageInfo",
+          "renameTo": "PageInfo"
+        },
+        {
+          "typeName": "pg_Post",
+          "renameTo": "Post"
+        },
+        {
+          "typeName": "pg_PostCondition",
+          "renameTo": "PostCondition"
+        },
+        {
+          "typeName": "pg_PostInput",
+          "renameTo": "PostInput"
+        },
+        {
+          "typeName": "pg_PostPatch",
+          "renameTo": "PostPatch"
+        },
+        {
+          "typeName": "pg_PostsConnection",
+          "renameTo": "PostsConnection"
+        },
+        {
+          "typeName": "pg_PostsEdge",
+          "renameTo": "PostsEdge"
+        },
+        {
+          "typeName": "pg_PostsOrderBy",
+          "renameTo": "PostsOrderBy"
+        },
+        {
+          "typeName": "pg_UpdatePostByNodeIdInput",
+          "renameTo": "UpdatePostByNodeIdInput"
+        },
+        {
+          "typeName": "pg_UpdatePostInput",
+          "renameTo": "UpdatePostInput"
+        },
+        {
+          "typeName": "pg_UpdatePostPayload",
+          "renameTo": "UpdatePostPayload"
+        },
+        {
+          "typeName": "pg_UpdateUserByNodeIdInput",
+          "renameTo": "UpdateUserByNodeIdInput"
+        },
+        {
+          "typeName": "pg_UpdateUserInput",
+          "renameTo": "UpdateUserInput"
+        },
+        {
+          "typeName": "pg_UpdateUserPayload",
+          "renameTo": "UpdateUserPayload"
+        },
+        {
+          "typeName": "pg_User",
+          "renameTo": "User"
+        },
+        {
+          "typeName": "pg_UserCondition",
+          "renameTo": "UserCondition"
+        },
+        {
+          "typeName": "pg_UserInput",
+          "renameTo": "UserInput"
+        },
+        {
+          "typeName": "pg_UserPatch",
+          "renameTo": "UserPatch"
+        },
+        {
+          "typeName": "pg_UsersConnection",
+          "renameTo": "UsersConnection"
+        },
+        {
+          "typeName": "pg_UsersEdge",
+          "renameTo": "UsersEdge"
+        },
+        {
+          "typeName": "pg_UsersOrderBy",
+          "renameTo": "UsersOrderBy"
+        }
+      ]
+    },
+    "s3UploadConfiguration": [],
+    "corsConfiguration": {
+      "maxAge": 120,
+      "allowedHeaders": [
+        "*"
+      ],
+      "allowedMethods": [
+        "GET",
+        "POST"
+      ],
+      "exposedHeaders": [
+        "*"
+      ],
+      "allowCredentials": true,
+      "allowedOrigins": [
+        {
+          "kind": 0,
+          "environmentVariableDefaultValue": "",
+          "environmentVariableName": "",
+          "placeholderVariableName": "",
+          "staticVariableContent": "http://localhost:3000"
+        }
+      ]
+    },
+    "experimentalConfig": {
+      "orm": false
+    },
+    "authenticationConfig": {
+      "cookieBased": {
+        "providers": [],
+        "authorizedRedirectUris": [],
+        "authorizedRedirectUriRegexes": [],
+        "blockKey": {
+          "kind": 0,
+          "environmentVariableDefaultValue": "",
+          "environmentVariableName": "",
+          "placeholderVariableName": "",
+          "staticVariableContent": ""
+        },
+        "hashKey": {
+          "kind": 0,
+          "environmentVariableDefaultValue": "",
+          "environmentVariableName": "",
+          "placeholderVariableName": "",
+          "staticVariableContent": ""
+        },
+        "csrfSecret": {
+          "kind": 0,
+          "environmentVariableDefaultValue": "",
+          "environmentVariableName": "",
+          "placeholderVariableName": "",
+          "staticVariableContent": ""
+        }
+      },
+      "hooks": {
+        "postAuthentication": false,
+        "mutatingPostAuthentication": false,
+        "revalidateAuthentication": false,
+        "postLogout": false
+      },
+      "jwksBased": {
+        "providers": []
+      },
+      "publicClaims": []
+    },
+    "allowedHostNames": [],
+    "webhooks": [],
+    "nodeOptions": {
+      "nodeUrl": {
+        "kind": 1,
+        "staticVariableContent": "",
+        "placeholderVariableName": "",
+        "environmentVariableDefaultValue": "http://localhost:9991",
+        "environmentVariableName": "WG_NODE_URL"
+      },
+      "nodeInternalUrl": {
+        "kind": 1,
+        "staticVariableContent": "",
+        "placeholderVariableName": "",
+        "environmentVariableDefaultValue": "http://localhost:9993",
+        "environmentVariableName": "WG_NODE_INTERNAL_URL"
+      },
+      "publicNodeUrl": {
+        "kind": 1,
+        "staticVariableContent": "",
+        "placeholderVariableName": "",
+        "environmentVariableDefaultValue": "http://localhost:9991",
+        "environmentVariableName": "WG_PUBLIC_NODE_URL"
+      },
+      "listen": {
+        "host": {
+          "kind": 1,
+          "staticVariableContent": "",
+          "placeholderVariableName": "",
+          "environmentVariableDefaultValue": "localhost",
+          "environmentVariableName": "WG_NODE_HOST"
+        },
+        "port": {
+          "kind": 1,
+          "staticVariableContent": "",
+          "placeholderVariableName": "",
+          "environmentVariableDefaultValue": "9991",
+          "environmentVariableName": "WG_NODE_PORT"
+        }
+      },
+      "listenInternal": {
+        "port": {
+          "kind": 1,
+          "staticVariableContent": "",
+          "placeholderVariableName": "",
+          "environmentVariableDefaultValue": "9993",
+          "environmentVariableName": "WG_NODE_INTERNAL_PORT"
+        }
+      },
+      "logger": {
+        "level": {
+          "kind": 1,
+          "staticVariableContent": "",
+          "placeholderVariableName": "",
+          "environmentVariableDefaultValue": "info",
+          "environmentVariableName": "WG_LOG_LEVEL"
+        }
+      },
+      "defaultRequestTimeoutSeconds": 0,
+      "defaultHttpProxyUrl": {
+        "kind": 1,
+        "staticVariableContent": "",
+        "placeholderVariableName": "",
+        "environmentVariableDefaultValue": "",
+        "environmentVariableName": "WG_HTTP_PROXY"
+      }
+    },
+    "serverOptions": {
+      "serverUrl": {
+        "kind": 1,
+        "staticVariableContent": "",
+        "placeholderVariableName": "",
+        "environmentVariableDefaultValue": "http://localhost:9992",
+        "environmentVariableName": "WG_SERVER_URL"
+      },
+      "listen": {
+        "host": {
+          "kind": 1,
+          "staticVariableContent": "",
+          "placeholderVariableName": "",
+          "environmentVariableDefaultValue": "localhost",
+          "environmentVariableName": "WG_SERVER_HOST"
+        },
+        "port": {
+          "kind": 1,
+          "staticVariableContent": "",
+          "placeholderVariableName": "",
+          "environmentVariableDefaultValue": "9992",
+          "environmentVariableName": "WG_SERVER_PORT"
+        }
+      },
+      "logger": {
+        "level": {
+          "kind": 1,
+          "staticVariableContent": "",
+          "placeholderVariableName": "",
+          "environmentVariableDefaultValue": "info",
+          "environmentVariableName": "WG_LOG_LEVEL"
+        }
+      }
+    }
+  },
+  "dangerouslyEnableGraphQLEndpoint": false,
+  "configHash": "7ddf7f67"
+}
